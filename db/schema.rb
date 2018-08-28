@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_031120) do
 
   create_table "daily_exchange_rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "exchange_code_id"
-    t.datetime "date_input"
+    t.date "date_input"
     t.decimal "rate_value", precision: 8, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
