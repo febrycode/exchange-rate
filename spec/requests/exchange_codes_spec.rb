@@ -14,5 +14,9 @@ RSpec.describe 'Exchange Code API', type: :request do
       expect(json["error"]).to be(false)
       expect(json["exchange_codes"].size).to eq(10)
     end
+
+    it 'returns status code 200' do
+      expect(response).to have_http_status(200)
+    end
   end
 end
