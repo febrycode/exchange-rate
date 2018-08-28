@@ -22,7 +22,7 @@ class DailyExchangeRatesController < ApplicationController
   private
 
   def ex_rate_params
-    params.require(:daily_exchange_rate).permit(
+    params.permit(
       :code_from,
       :code_to,
       :date_input,
