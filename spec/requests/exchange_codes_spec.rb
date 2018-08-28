@@ -28,7 +28,7 @@ RSpec.describe 'Exchange Code API', type: :request do
       post '/exchange_codes', params: params
     end
 
-    it 'creates a exchange code' do
+    it 'creates an exchange code' do
       expect(json["error"]).to be(false)
       expect(json["message"]).to eq("Exchange Code successfully created")
     end
