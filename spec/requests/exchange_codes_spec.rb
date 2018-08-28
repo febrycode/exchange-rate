@@ -23,7 +23,7 @@ RSpec.describe 'Exchange Code API', type: :request do
 
   describe 'POST /exchange_codes' do
     before do
-      params = { code_from: 'USD', code_to: 'IDR' }
+      params = { exchange_code: { code_from: 'USD', code_to: 'IDR' } }
 
       post '/exchange_codes', params: params
     end
