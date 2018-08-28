@@ -6,6 +6,7 @@ RSpec.describe 'Exchange Code API', type: :request do
 
     before do
       create_list(:exchange_code, 10)
+
       get '/exchange_codes'
     end
 
@@ -17,6 +18,23 @@ RSpec.describe 'Exchange Code API', type: :request do
 
     it 'returns status code 200' do
       expect(response).to have_http_status(200)
+    end
+  end
+
+  describe 'POST /exchange_codes' do
+    before do
+      params = { code_from: 'USD', code_to: 'IDR' }
+
+      post '/exchange_codes', params: params
+    end
+
+    it 'creates a exchange code' do
+      expect(json["error"]).to be(false)
+      expect(json["message"]).to eq("Exchange Code successfully created")
+    end
+
+    it 'returns status code 201' do
+      expect(response).to have_http_status(201)
     end
   end
 end
