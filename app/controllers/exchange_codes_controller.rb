@@ -15,6 +15,13 @@ class ExchangeCodesController < ApplicationController
     end
   end
 
+  def destroy
+    exchange_code = ExchangeCode.find(params[:id])
+    exchange_code.destroy
+
+    head :no_content
+  end
+
   private
 
   def exchange_code_params
