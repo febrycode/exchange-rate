@@ -1,5 +1,15 @@
 class DailyExchangeRatesController < ApplicationController
 
+  def index
+    if params[:date].present?
+      ex_rates = DailyExchangeRate.where(date_input: params[:date])
+    else
+      ex_rates = DailyExchangeRate.all
+    end
+
+    render json: { ex_rates: ex_rates, error: false }, status: :ok
+  end
+
   def create
     exchange_code = ExchangeCode.find_by(
       code_from: ex_rate_params["code_from"],
