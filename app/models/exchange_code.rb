@@ -1,0 +1,2 @@
+class ExchangeCode < ApplicationRecord
+end
