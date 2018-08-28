@@ -37,4 +37,17 @@ RSpec.describe 'Exchange Code API', type: :request do
       expect(response).to have_http_status(201)
     end
   end
+
+  describe 'DELETE /exchange_codes/:id' do
+    before do
+      exchange_code = create(:exchange_code)
+      exchange_code_id = exchange_code.id
+
+      delete "/exchange_codes/#{exchange_code_id}"
+    end
+
+    it 'returns status code 204' do
+      expect(response).to have_http_status(204)
+    end
+  end
 end
