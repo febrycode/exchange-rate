@@ -11,7 +11,8 @@ RSpec.describe 'Exchange Code API', type: :request do
 
     it 'returns exchange codes' do
       expect(json).to_not be_empty
-      expect(json.size).to eq(10)
+      expect(json["error"]).to be(false)
+      expect(json["exchange_codes"].size).to eq(10)
     end
   end
 end
