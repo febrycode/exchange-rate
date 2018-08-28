@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_030751) do
+ActiveRecord::Schema.define(version: 2018_08_28_031120) do
+
+  create_table "daily_exchange_rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "exchange_code_id"
+    t.datetime "date_input"
+    t.decimal "rate_value", precision: 8, scale: 6
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exchange_code_id"], name: "index_daily_exchange_rates_on_exchange_code_id"
+  end
 
   create_table "exchange_codes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "code_from", limit: 3
