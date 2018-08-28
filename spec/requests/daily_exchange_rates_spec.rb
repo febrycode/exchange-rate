@@ -8,7 +8,7 @@ RSpec.describe 'Daily Exchange Rate API' do
       exchange_code = create(:exchange_code)
       params = {
           daily_exchange_rate:
-            { exchange_code_id: exchange_code.code_from,
+            { code_from: exchange_code.code_from,
               code_to: exchange_code.code_to,
               date_input: '2018-07-01',
               rate_value: 0.75709
